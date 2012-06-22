@@ -1,5 +1,5 @@
 $(function(){
-    var socket = io.connect('http://localhost');
+    var socket = io.connect(location.origin);
 
     socket.on('broadcast msg', function (msgObj) {
         $('#messages').prepend('<li class="msg" data-time="' + Date.now() + '">' + msgObj.user + ' said: ' + msgObj.msg + ' <em><span class="msg-time">'+ moment().fromNow() +'</span></em> </li>');
