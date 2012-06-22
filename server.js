@@ -44,6 +44,17 @@ app.get('/', function (req, res) {
 
 io.sockets.on('connection', function (socket) {
 
+    socket.on('user login', function (user, cb) {
+        var u = user;
+        var next = cb;
+
+        socket.set('user', user, function(){
+            socket.broadcast.emit('broadcast login', u);
+
+            next(u);
+        });
+    });
+
     socket.on('message', function (data, cb) {
 
         if(/^rstbot .+/.test(data.msg)){
@@ -55,4 +66,13 @@ io.sockets.on('connection', function (socket) {
         cb(data.msg);
     });
 
+    socket.on('disconnect', function () {
+        socket.get('user', function (err, user) {
+
+            if(!!user){
+                socket.broadcast.emit('user disconnected', user);
+            }
+            
+        });
+    });
 });

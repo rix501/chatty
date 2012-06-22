@@ -22,12 +22,11 @@
       <div class="navbar-inner">
         <div class="container-fluid">
             <a class="brand" href="#">Chatty</a>
-            <ul class="nav">
-
-            </ul>
-            <form class="navbar-form pull-right">
+            <form id="login" class="navbar-form pull-right">
                 <input id="user" type="text" class="span2" placeholder="Username">
+                <button type="submit" class="btn">Set</button>
             </form>
+            <ul class="nav pull-right username"></ul>
         </div>
       </div>
     </div>
@@ -36,19 +35,21 @@
         <span class="row-fluid">
             <ul id="messages" class="span12"></ul>
         </span>
-    </div> <!-- /container -->
+    </div>
 
-    <span id="chat" class="row-fluid">
+    <div id="chat" class="row-fluid">
         <form class="well form-inline row-fluid">
             <input type="text" id="msg-input" class="span9" placeholder="Type something…">
             <button type="submit" class="btn span2">Submit</button>
         </form>
-    </span>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
-<script src="js/libs/bootstrap/bootstrap.min.js"></script>
-<script src="js/libs/moment.js"></script>
-<script src="js/script.js"></script>
-<script src="/socket.io/socket.io.js"></script>
+    </div>
+
+    <!-- Le scripts -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/libs/bootstrap/bootstrap.min.js"></script>
+    <script src="js/libs/moment.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
