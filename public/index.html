@@ -1,0 +1,54 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Chatty</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script>window.html5 || document.write('<script src="js/libs/html5.js"><\/script>')</script>
+    <![endif]-->
+</head>
+<body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="brand" href="#">Chatty</a>
+            <ul class="nav">
+
+            </ul>
+            <form class="navbar-form pull-right">
+                <input id="user" type="text" class="span2" placeholder="Username">
+            </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+        <span class="row-fluid">
+            <ul id="messages" class="span12"></ul>
+        </span>
+    </div> <!-- /container -->
+
+    <span id="chat" class="row-fluid">
+        <form class="well form-inline row-fluid">
+            <input type="text" id="msg-input" class="span9" placeholder="Type something…">
+            <button type="submit" class="btn span2">Submit</button>
+        </form>
+    </span>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
+<script src="js/libs/bootstrap/bootstrap.min.js"></script>
+<script src="js/libs/moment.js"></script>
+<script src="js/script.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+</body>
+</html>

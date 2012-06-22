@@ -1,0 +1,24 @@
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+.hidden {
+    display: none;
+}
+
+#chat {
+    top: auto;
+    bottom: 0;
+    position: fixed;
+    z-index: 99;
+    margin-bottom: 0;
+}
+
+#chat form{
+    margin-bottom: 0;
+}
+
+#msg-input {
+    float: left;
+}
