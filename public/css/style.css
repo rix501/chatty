@@ -19,10 +19,18 @@ body {
     margin-bottom: 0;
 }
 
+#chat form .btn{
+    margin-left: 10px;
+}
+
 #msg-input {
     float: left;
 }
 
 #user {
     margin: 5px 5px 6px;
+}
+
+#messages {
+    list-style: none;
 }

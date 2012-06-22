@@ -2,15 +2,15 @@ $(function(){
     var socket = io.connect(location.origin);
 
     socket.on('broadcast msg', function (msgObj) {
-        $('#messages').prepend('<li class="msg" data-time="' + Date.now() + '">' + msgObj.user + ' said: ' + msgObj.msg + ' <em><span class="msg-time">'+ moment().fromNow() +'</span></em> </li>');
+        $('#messages').prepend('<li class="msg well" data-time="' + Date.now() + '">' + msgObj.user + ' said: ' + msgObj.msg + ' <em><span class="msg-time">'+ moment().fromNow() +'</span></em> </li>');
     });
 
     socket.on('broadcast login', function (msg) {
-        $('#messages').prepend('<li class="msg" data-time="' + Date.now() + '">' + msg + ' logged in <em><span class="msg-time">'+ moment().fromNow() +'</span></em> </li>');
+        $('#messages').prepend('<li class="msg well" data-time="' + Date.now() + '">' + msg + ' logged in <em><span class="msg-time">'+ moment().fromNow() +'</span></em> </li>');
     });
 
     socket.on('user disconnected', function (msg) {
-        $('#messages').prepend('<li class="msg" data-time="' + Date.now() + '">' + msg + ' disconnected <em><span class="msg-time">'+ moment().fromNow() +'</span></em> </li>');
+        $('#messages').prepend('<li class="msg well" data-time="' + Date.now() + '">' + msg + ' disconnected <em><span class="msg-time">'+ moment().fromNow() +'</span></em> </li>');
     });
 
     function updateTime() {
@@ -31,7 +31,7 @@ $(function(){
         }
 
         socket.emit('user login', user, function(msg){
-            $('#messages').prepend('<li class="msg" data-time="' + Date.now() + '">' + msg + ' logged in <em><span class="msg-time">'+ moment().fromNow() +'</span></em> </li>');
+            $('#messages').prepend('<li class="msg well" data-time="' + Date.now() + '">' + msg + ' logged in <em><span class="msg-time">'+ moment().fromNow() +'</span></em> </li>');
             $('.nav.username').append('<li><a href="#">' + msg + '</a></li>');
             $('#login').hide();
         });
@@ -45,9 +45,17 @@ $(function(){
         var msg = $.trim($(this).children('input').val());
         var user = $.trim($('#user').val());
 
-        if(!msg || !user){
+        if(!user){
+            alert('Please login');
+
             return false;
         }
+
+        if(!msg){
+            return false;
+        }
+
+        $(this).children('input').val('');
 
         var msgObj = {
             user: user,
@@ -55,7 +63,7 @@ $(function(){
         };
 
         socket.emit('message', msgObj, function(msg){
-            $('#messages').prepend('<li class="msg" data-time="' + Date.now() + '">' + msgObj.user + ' said: ' + msg + ' <em><span class="msg-time">'+ moment().fromNow() +'</span></em> </li>');
+            $('#messages').prepend('<li class="msg well" data-time="' + Date.now() + '">' + msgObj.user + ' said: ' + msg + ' <em><span class="msg-time">'+ moment().fromNow() +'</span></em> </li>');
         });
 
         return false;
